@@ -1,16 +1,29 @@
+import'./Styling.css'
+import React from "react";
+import satData from "./satData";
 const Table = ({ sat }) => {
   return (
+    
     <table>
-    <thead>
-     <tr>
-       <th>Header TBD</th>
-     </tr>
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type of Satellite</th>
+            <th>Launch Date</th>
+            <th>Status</th>
+        </tr>
      </thead>
      <tbody>
-     <tr>
-       <td>Row Data TBD</td>
-     </tr>
+    {sat.map(({ id, name, type, launchDate, operational }) => (
+       <tr key={id}>
+       <td>{name}</td>
+        <td>{type}</td>
+        <td>{launchDate}</td>
+        <td>{operational ? 'Active' : 'Inactive'}</td>
+        </tr>
+         ))}
      </tbody>
+
    </table>
   );
 };
